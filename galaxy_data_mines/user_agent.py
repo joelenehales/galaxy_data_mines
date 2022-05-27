@@ -38,6 +38,9 @@ working_dir = os.getcwd()
               type=click.Choice(['csv', 'fits']),
               help="Use this option to save the comparison table to the output\
               folder in the format of your choice.")
+@click.option('--filename', # Probably not the best way to impliment this
+              type=click.STRING,
+              help="Use this option to specify filename to save the output as.")
 @click.option('--savestats',
               is_flag=True,
               help="Saves statistics of comparison results.")
@@ -47,7 +50,7 @@ working_dir = os.getcwd()
 @click.pass_context
 def main(ctx, log, glossary,
          showtree, showplot, showtable,
-         savelog, saveplot, savetable, savestats, shortstats):
+         savelog, saveplot, savetable, filename, savestats, shortstats):
     '''
     Compares object classifications between NED and SIMBAD.
     '''
@@ -57,8 +60,11 @@ def main(ctx, log, glossary,
     # "Save" options create a directory.
     dir_exists = False
     if savelog or savetable or saveplot or savestats:
-        currentDT = datetime.datetime.now()
-        filename = (currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss")) + "-gdm"
+
+        if not filename:
+            currentDT = datetime.datetime.now()
+            filename = (currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss")) + "-gdm"
+
         ctx.obj['filename'] = filename
 
         try:
