@@ -1,0 +1,8 @@
+astropy
+astroquery
+click
+matplotlib
+numpy
+pandas
+treelib
+scipy

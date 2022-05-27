@@ -1,0 +1,3 @@
+[console_scripts]
+gdmines = galaxy_data_mines.user_agent:main
+
