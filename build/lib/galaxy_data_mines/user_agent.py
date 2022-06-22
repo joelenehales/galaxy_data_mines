@@ -38,19 +38,19 @@ working_dir = os.getcwd()
               type=click.Choice(['csv', 'fits']),
               help="Use this option to save the comparison table to the output\
               folder in the format of your choice.")
-@click.option('--filename', # Probably not the best way to impliment this
-              type=click.STRING,
-              help="Use this option to specify filename to save the output as.")
 @click.option('--savestats',
               is_flag=True,
               help="Saves statistics of comparison results.")
 @click.option('--shortstats',
               is_flag=True,
               help="Show statistics of comparison results in short format.")
+@click.argument('--filename', # Probably not the best way to impliment this
+                type=str,
+                help="Specify filename to save the output as. Will automatically be followed by output type for each output type.")
 @click.pass_context
 def main(ctx, log, glossary,
          showtree, showplot, showtable,
-         savelog, saveplot, savetable, filename, savestats, shortstats):
+         savelog, saveplot, savetable, savestats, shortstats, filename):
     '''
     Compares object classifications between NED and SIMBAD.
     '''
@@ -60,12 +60,6 @@ def main(ctx, log, glossary,
     # "Save" options create a directory.
     dir_exists = False
     if savelog or savetable or saveplot or savestats:
-
-        if not filename:
-            currentDT = datetime.datetime.now()
-            filename = (currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss")) + "-gdm"
-
-        ctx.obj['filename'] = filename
 
         try:
             # Succeeds even if directory exists.
@@ -312,29 +306,33 @@ def common_option_handler(ctx, dc):
     dc.stats.derive_table_stats(dc.combined_table)
     stats_output = dc.stats.generateStatTemplate()
 
-    objname = ctx.obj['name']
-
     # Save file variables.
     if ctx.obj["savetable"] or ctx.obj['saveplot'] or ctx.obj['savestats']:
-        filename = ctx.obj['filename']
+
+        if not filename: # Create default file name if none is passed
+            currentDT = datetime.datetime.now()
+            filename = ctx.obj['name']+"-"+(currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss"))+"-gdm"
+
+        else:
+            filename = ctx.obj['filename']
 
     # If table option(s) present.
     if ctx.obj["showtable"]:
         dc.combined_table.show_in_browser(jsviewer=True)
     if ctx.obj["savetable"]:
-        dc.saveTable(fileName=working_dir+'/gdm_output'+'/'+objname+'-'+filename,
+        dc.saveTable(fileName=working_dir+'/gdm_output'+'/'+filename,
                      file_format=ctx.obj['savetable'])
 
     # If plot option(s) present.
     if ctx.obj['showplot'] or ctx.obj['saveplot']:
         plot = DataController.plot_match_table(dc.combined_table, name=objname)
         if ctx.obj['saveplot']:
-            plot.savefig(working_dir+'/gdm_output'+'/'+objname+'-'+filename+'.png')
+            plot.savefig(working_dir+'/gdm_output'+'/'+filename+'.png')
         if ctx.obj['showplot']:
             plot.show()
 
     if ctx.obj['savestats']:
-        with open(working_dir+'/gdm_output'+'/'+objname+"-stats-"+filename+".txt", "w") as text_file:
+        with open(working_dir+'/gdm_output'+'/'+filename+"-stats"+".txt", "w") as text_file:
             text_file.write("{}".format(stats_output))
 
     # If glossary option present.
