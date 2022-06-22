@@ -44,8 +44,8 @@ working_dir = os.getcwd()
 @click.option('--shortstats',
               is_flag=True,
               help="Show statistics of comparison results in short format.")
-@click.argument('--filename', # Probably not the best way to impliment this
-                type=str,
+@click.option('--filename', # Probably not the best way to impliment this
+                type=click.STRING,
                 help="Specify filename to save the output as. Will automatically be followed by output type for each output type.")
 @click.pass_context
 def main(ctx, log, glossary,
