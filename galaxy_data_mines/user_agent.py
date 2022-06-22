@@ -121,6 +121,7 @@ def main(ctx, log, glossary,
 
     # Store option values in context.
     ctx.obj['glossary'] = glossary
+    ctx.obj['filename'] = filename
     ctx.obj['showplot'] = showplot
     ctx.obj['showtable'] = showtable
     ctx.obj['savetable'] = savetable
@@ -309,7 +310,7 @@ def common_option_handler(ctx, dc):
     # Save file variables.
     if ctx.obj["savetable"] or ctx.obj['saveplot'] or ctx.obj['savestats']:
 
-        if not filename: # Create default file name if none is passed
+        if not ctx.obj["filename"]: # Create default file name if none is passed
             currentDT = datetime.datetime.now()
             filename = ctx.obj['name']+"-"+(currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss"))+"-gdm"
 
