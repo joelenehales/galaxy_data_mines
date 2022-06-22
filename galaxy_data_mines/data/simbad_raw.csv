@@ -10,7 +10,7 @@ id,long_name,tag
 "01.01.02.01",RedSG,s*r
 "01.01.02.02",YellowSG,s*y
 "01.01.02.03",BlueSG,s*b
-"01.01.02.04",WolfRayet*,WR* # Not indented on right level - subcategory of s*b
+"01.01.02.04",WolfRayet*,WR*  # Not indented on right level - subcategory of s*b
 "01.01.03.00",Neutron*,N*
 "01.01.03.01",Pulsar,Psr
 "01.02.00.00",Massiv*_Candidate,Ma?
@@ -19,7 +19,7 @@ id,long_name,tag
 "01.02.02.01",RSG*_Candidate,s?r
 "01.02.02.02",YSG*_Candidate,s?y
 "01.02.02.03",BSG*_Candidate,s?b
-"01.02.02.04",WR*_Candidate,WR? # Not indented on right level - subcategory of s?b
+"01.02.02.04",WR*_Candidate,WR?  # Not indented on right level - subcategory of s?b
 "01.02.03.00",NS_Candidate,N*?
 ### 1.2 Young Stellar Objects and Pre.Main Sequence Stars ###
 "01.04.00.00",YSO,Y*O
@@ -89,9 +89,9 @@ id,long_name,tag
 "01.12.00.00",**,**
 "01.12.01.00",EllipVar,El*
 "01.12.02.00",EclBin,EB*
-"01.12.02.01",EB*Algol,Al* # Left in for now - not sure if still part of classification scheme
-"01.12.02.02",EB*betLyr,bL* # Left in for now - not sure if still part of classification scheme
-"01.12.02.03",EB*WUMa,WU* # Left in for now - not sure if still part of classification scheme
+"01.12.02.01",EB*Algol,Al*  # Left in for now - not sure if still part of classification scheme
+"01.12.02.02",EB*betLyr,bL*  # Left in for now - not sure if still part of classification scheme
+"01.12.02.03",EB*WUMa,WU*  # Left in for now - not sure if still part of classification scheme
 "01.12.03.00",SB*,SB*
 "01.12.04.00",BYDraV*,BY*
 "01.12.05.00",RSCVnV*,RS*
@@ -101,10 +101,10 @@ id,long_name,tag
 "01.12.07.02",HightMassXBin,HXB
 "01.12.08.00",CataclyV*,CV*
 "01.12.08.01",Nova,No*
-"01.12.08.02",Nova-like,NL* # Not sure if still part of classification scheme. Should be one level indented
-"01.12.08.03",DwarfNova,DN* # Not sure if still part of classification scheme. Should be one level indented
-"01.12.08.04",DQHer,DQ* # Not sure if still part of classification scheme. Should be one level indented
-"01.12.08.05",AMHer,AM* # Not sure if still part of classification scheme. Should be one level indented
+"01.12.08.02",Nova-like,NL*  # Not sure if still part of classification scheme. Should be one level indented
+"01.12.08.03",DwarfNova,DN*  # Not sure if still part of classification scheme. Should be one level indented
+"01.12.08.04",DQHer,DQ*  # Not sure if still part of classification scheme. Should be one level indented
+"01.12.08.05",AMHer,AM*  # Not sure if still part of classification scheme. Should be one level indented
 "01.13.00.00",**_Candidate,**?
 "01.13.01.00",EllipVar_Candidate,El?
 "01.13.02.00",EB*_Candidate,EB?
@@ -178,94 +178,94 @@ id,long_name,tag
 ##############################################
 ##          4. Taxonomy of Galaxies         ##
 ##############################################
-"06.00.00.00",Galaxy,G
-"06.01.00.00",LowSurfBrghtG,LSB
-"06.02.00.00",BlueCompactG,bCG
-"06.03.00.00",StarburstG,SBG
-"06.04.00.00",HIIG,H2G
-"06.05.00.00",EmissionG,EmG
-"06.06.00.00",AGN,AGN
-"06.06.01.00",Seyfert,SyG
-"06.06.01.01",Seyfert1,Sy1
-"06.06.01.02",Seyfert2,Sy2
-"06.06.02.00",RadioG,rG
-"06.06.03.00",LINER,LIN
-"06.06.04.00",QSO,QSO
-"06.06.04.01",Blazar,Bla
-"06.06.04.02",BLLac,BLL # Not indented on right level - subcategory of Bla
+"07.00.00.00",Galaxy,G
+"07.01.00.00",LowSurfBrghtG,LSB
+"07.02.00.00",BlueCompactG,bCG
+"07.03.00.00",StarburstG,SBG
+"07.04.00.00",HIIG,H2G
+"07.05.00.00",EmissionG,EmG
+"07.06.00.00",AGN,AGN
+"07.06.01.00",Seyfert,SyG
+"07.06.01.01",Seyfert1,Sy1
+"07.06.01.02",Seyfert2,Sy2
+"07.06.02.00",RadioG,rG
+"07.06.03.00",LINER,LIN
+"07.06.04.00",QSO,QSO
+"07.06.04.01",Blazar,Bla
+"07.06.04.02",BLLac,BLL  # Not indented on right level - subcategory of Bla
 ### 4.1 Environment Properties ###
-"06.07.00.00",GinPair,GiP
-"06.08.00.00",GtowardsGroup,GiG
-"06.09.00.00",GtowardsCl,GiC
-"06.09.01.00",BrightestCG,BiC
-"07.00.00.00",G_Candidate,G?
-"07.06.00.00",AGN_Candidate,AG?
-"07.06.04.00",QSO_Candidate,Q?
-"07.06.04.01",Blazar_Candidate,Bz?
-"07.06.04.02",BLLac_Candidate,BL? # Not indented on right level - subcategory of Bz?
+"07.07.00.00",GinPair,GiP
+"07.08.00.00",GtowardsGroup,GiG
+"07.09.00.00",GtowardsCl,GiC
+"07.09.01.00",BrightestCG,BiC
+"08.00.00.00",G_Candidate,G?
+"08.06.00.00",AGN_Candidate,AG?
+"08.06.04.00",QSO_Candidate,Q?
+"08.06.04.01",Blazar_Candidate,Bz?
+"08.06.04.02",BLLac_Candidate,BL?  # Not indented on right level - subcategory of Bz?
 ##############################################
 ##            5. Sets of Galaxies           ##
 ##############################################
-"08.00.00.00",InteractingG,IG
-"09.00.00.00",PairG,PaG
-"10.00.00.00",GroupG,GrG
-"10.01.00.00",Compact_Gr_G,CGG
-"11.00.00.00",ClG,ClG
-"12.00.00.00",SuperClG,SCG
-"13.00.00.00",Void,vid
-"14.00.00.00",GrG_Candidate,Gr?
-"15.00.00.00",ClG_Candidate,C?G
-"16.00.00.00",SClG_Candidate,SC?
+"09.00.00.00",InteractingG,IG
+"10.00.00.00",PairG,PaG
+"11.00.00.00",GroupG,GrG
+"11.01.00.00",Compact_Gr_G,CGG
+"12.00.00.00",ClG,ClG
+"13.00.00.00",SuperClG,SCG
+"14.00.00.00",Void,vid
+"15.00.00.00",GrG_Candidate,Gr?
+"16.00.00.00",ClG_Candidate,C?G
+"17.00.00.00",SClG_Candidate,SC?
 ##############################################
 ##              6. Gravitation              ##
 ##############################################
-"17.00.00.00",Gravitation,grv
-"17.01.00.00",LensingEv,Lev
-"17.02.00.00",GravLensSystem,gLS
-"17.02.01.00",GravLens,gLe
-"17.02.02.00",LensedImage,LeI
-"17.02.02.01",LensedG,LeG
-"17.02.02.02",LensedQ,LeQ
-"17.03.00.00",LensSystem_Candidate,LS?
-"17.03.01.00",Lens_Candidate,Le?
-"17.03.02.00",lensImage_Candidate,LI?
-"17.04.00.00",BlackHole,BH
-"17.05.00.00",BH_Candidate,BH?
-"17.06.00.00",GravWaveEvent,GWE
+"18.00.00.00",Gravitation,grv
+"18.01.00.00",LensingEv,Lev
+"18.02.00.00",GravLensSystem,gLS
+"18.02.01.00",GravLens,gLe
+"18.02.02.00",LensedImage,LeI
+"18.02.02.01",LensedG,LeG
+"18.02.02.02",LensedQ,LeQ
+"18.03.00.00",LensSystem_Candidate,LS?
+"18.03.01.00",Lens_Candidate,Le?
+"18.03.02.00",lensImage_Candidate,LI?
+"18.04.00.00",BlackHole,BH
+"18.05.00.00",BH_Candidate,BH?
+"18.06.00.00",GravWaveEvent,GWE
 ##############################################
 ##      7. General Spectral Properties      ##
 ##############################################
-"18.00.00.00",Transient,ev
-"19.00.00.00",Radio,Rad
-"19.01.00.00",metricRad,mR
-"19.02.00.00",cmRad,cm
-"19.03.00.00",mmRad,mm
-"19.04.00.00",smmRad,smm
-"19.05.00.00",HI,HI
-"19.06.00.00",radioBurst,rB
-"19.07.00.00",Maser,Mas
-"20.00.00.00",Infrared,IR
-"20.01.00.00",FarIR,FIR
-"20.02.00.00",MidIR,MIR
-"20.03.00.00",NearIR,NIR
-"21.00.00.00",Optical,Opt
-"21.01.00.00",EmObj,EmO
-"21.02.00.00",blue,blu
-"22.00.00.00",UV,UV
-"23.00.00.00",X,X
-"23.01.00.00",ULX,ULX
-"23.02.00.00",ULX_Candidate,UX?
-"24.00.00.00",gamma,gam
-"24.01.00.00",gammaBurst,gB
+"19.00.00.00",Transient,ev
+"20.00.00.00",Radio,Rad
+"20.01.00.00",metricRad,mR
+"20.02.00.00",cmRad,cm
+"20.03.00.00",mmRad,mm
+"20.04.00.00",smmRad,smm
+"20.05.00.00",HI,HI
+"20.06.00.00",radioBurst,rB
+"20.07.00.00",Maser,Mas
+"21.00.00.00",Infrared,IR
+"21.01.00.00",FarIR,FIR
+"21.02.00.00",MidIR,MIR
+"21.03.00.00",NearIR,NIR
+"22.00.00.00",Optical,Opt
+"22.01.00.00",EmObj,EmO
+"22.02.00.00",blue,blu
+"23.00.00.00",UV,UV
+"24.00.00.00",X,X
+"24.01.00.00",ULX,ULX
+"24.02.00.00",ULX_Candidate,UX?
+"25.00.00.00",gamma,gam
+"25.01.00.00",gammaBurst,gB
 ##############################################
 ##    8. Blends, Errors, Not Well Defined   ##
 ##############################################
-"25.00.00.00",Blend,mul
-"26.00.00.00",Inexistent,err
-"27.00.00.00",PartofCloud,PoC
-"28.00.00.00",PartofG,PoG
-"29.00.00.00",Unknown,?
-"30.00.00.00",Region,reg
+"26.00.00.00",Blend,mul
+"27.00.00.00",Inexistent,err
+"28.00.00.00",PartofCloud,PoC
+"29.00.00.00",PartofG,PoG
+"30.00.00.00",Unknown,?
+"31.00.00.00",Region,reg
 # This is a comment, lines starting with '#' will be ignored
 # when building the tree.
 # Notes:
