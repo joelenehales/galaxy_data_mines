@@ -344,6 +344,7 @@ class DataController:
         'S*_Candidate': 'S*?',
         'OH_Candidate': 'OH?',
         'WR*_Candidate': 'WR?',
+        'WolfRayet*_Candidate': 'WR?', # Some objects also classified like this
         'Be*_Candidate': 'Be?',
         'Ae*_Candidate': 'Ae?',
         'HB*_Candidate': 'HB?',
