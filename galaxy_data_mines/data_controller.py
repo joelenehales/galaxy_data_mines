@@ -189,18 +189,18 @@ class DataController:
         'MouvGroup': 'MGr',
         '**': '**',
         'EB*': 'EB*',
-        'EB*Algol': 'Al*',
-        'EB*betLyr': 'bL*',
-        'EB*WUMa': 'WU*',
+        'EB*Algol': 'Al*', # No longer part of classification scheme?
+        'EB*betLyr': 'bL*', # No longer part of classification scheme?
+        'EB*WUMa': 'WU*', # No longer part of classification scheme?
         'SB*': 'SB*',
         'EllipVar': 'El*',
         'Symbiotic*': 'Sy*',
         'CataclyV*': 'CV*',
-        'DQHer': 'DQ*',
-        'AMHer': 'AM*',
-        'Nova-like': 'NL*',
+        'DQHer': 'DQ*', # No longer part of classification scheme?
+        'AMHer': 'AM*', # No longer part of classification scheme?
+        'Nova-like': 'NL*', # No longer part of classification scheme?
         'Nova': 'No*',
-        'DwarfNova': 'DN*',
+        'DwarfNova': 'DN*', # No longer part of classification scheme?
         'XB': 'XB*',
         'LMXB': 'LXB',
         'HMXB': 'HXB',
@@ -279,7 +279,7 @@ class DataController:
         'LPV*': 'LP*',
         'Mira': 'Mi*',
         'SN': 'SN*',
-        'Sub-stellar': 'su*',
+        'Sub-stellar': 'su*', # No longer part of classification scheme?
         'Planet?': 'Pl?',
         'Planet': 'Pl',
         'Galaxy': 'G',
@@ -308,7 +308,7 @@ class DataController:
         'Seyfert_2': 'Sy2',
         'Blazar': 'Bla',
         'BLLac': 'BLL',
-        'OVV': 'OVV',
+        'OVV': 'OVV', # No longer part of classification scheme?
         'QSO': 'QSO',
     # New labels (removed any that stayed the same)
         'metricRad': 'mR',
@@ -355,7 +355,8 @@ class DataController:
         'RSG*_Candidate': 's?r',
         'YSG*_Candidate': 's?y',
         'BSG*_Candidate': 's?b',
-        'BSG_Candidate': 's?b',  # Some objects also classified like this
+        #'BSG_Candidate': 's?b',  # Some objects also classified like this
+        'BlueSG_Candidate': 's?b',  # Some objects also classified like this
         'AGB*_Candidate': 'AB?',
         'LP*_Candidate': 'LP?',
         'Mi*_Candidate': 'Mi?',
