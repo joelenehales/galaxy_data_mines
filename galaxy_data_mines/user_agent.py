@@ -309,12 +309,12 @@ def common_option_handler(ctx, dc):
     # Save file variables.
     if ctx.obj["savetable"] or ctx.obj['saveplot'] or ctx.obj['savestats']:
 
-    if not filename: # Create default file name if none is passed
-        currentDT = datetime.datetime.now()
-        filename = ctx.obj['name']+"-"+(currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss"))+"-gdm"
+        if not filename: # Create default file name if none is passed
+            currentDT = datetime.datetime.now()
+            filename = ctx.obj['name']+"-"+(currentDT.strftime("%Y-%m-%d|%Hhr-%Mm-%Ss"))+"-gdm"
 
-    else:
-        filename = ctx.obj['filename']
+        else:
+            filename = ctx.obj['filename']
 
     # If table option(s) present.
     if ctx.obj["showtable"]:
