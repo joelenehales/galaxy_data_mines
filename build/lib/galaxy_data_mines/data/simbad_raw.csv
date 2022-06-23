@@ -20,6 +20,7 @@ id,long_name,tag
 "01.02.02.02",YSG*_Candidate,s?y
 "01.02.02.03",BSG*_Candidate,s?b
 "01.02.02.04",WR*_Candidate,WR?  # Not indented on right level - subcategory of s?b
+"01.02.02.05",WR?,WR? # Not sure why this is needed but it works
 "01.02.03.00",NS_Candidate,N*?
 ### 1.2 Young Stellar Objects and Pre.Main Sequence Stars ###
 "01.04.00.00",YSO,Y*O
@@ -192,7 +193,7 @@ id,long_name,tag
 "07.06.03.00",LINER,LIN
 "07.06.04.00",QSO,QSO
 "07.06.04.01",Blazar,Bla
-"07.06.04.02",BLLac,BLL # Not indented on right level - subcategory of Bla
+"07.06.04.02",BLLac,BLL  # Not indented on right level - subcategory of Bla
 ### 4.1 Environment Properties ###
 "07.07.00.00",GinPair,GiP
 "07.08.00.00",GtowardsGroup,GiG
@@ -202,7 +203,7 @@ id,long_name,tag
 "08.06.00.00",AGN_Candidate,AG?
 "08.06.04.00",QSO_Candidate,Q?
 "08.06.04.01",Blazar_Candidate,Bz?
-"08.06.04.02",BLLac_Candidate,BL? # Not indented on right level - subcategory of Bz?
+"08.06.04.02",BLLac_Candidate,BL?  # Not indented on right level - subcategory of Bz?
 ##############################################
 ##            5. Sets of Galaxies           ##
 ##############################################
