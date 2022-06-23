@@ -10,7 +10,8 @@ id,long_name,tag
 "01.01.02.01",RedSG,s*r
 "01.01.02.02",YellowSG,s*y
 "01.01.02.03",BlueSG,s*b
-"01.01.02.04",WolfRayet*,WR*  # Not indented on right level - subcategory of s*b
+"01.01.02.04",WolfRayet*,WR*
+# Not indented on right level - subcategory of s*b
 "01.01.03.00",Neutron*,N*
 "01.01.03.01",Pulsar,Psr
 "01.02.00.00",Massiv*_Candidate,Ma?
@@ -19,8 +20,10 @@ id,long_name,tag
 "01.02.02.01",RSG*_Candidate,s?r
 "01.02.02.02",YSG*_Candidate,s?y
 "01.02.02.03",BSG*_Candidate,s?b
-"01.02.02.04",WR*_Candidate,WR?  # Not indented on right level - subcategory of s?b
-"01.02.02.06",WR?,WR? # Not sure why this is needed but it works
+"01.02.02.04",WR*_Candidate,WR?
+# Not indented on right level - subcategory of s?b
+"01.02.02.05",WR?,WR?
+# Not sure why this is needed but it works
 "01.02.03.00",NS_Candidate,N*?
 ### 1.2 Young Stellar Objects and Pre.Main Sequence Stars ###
 "01.04.00.00",YSO,Y*O
@@ -90,7 +93,7 @@ id,long_name,tag
 "01.12.00.00",**,**
 "01.12.01.00",EllipVar,El*
 "01.12.02.00",EclBin,EB*
-"01.12.02.01",EB*Algol,Al*  # Left in for now - not sure if still part of classification scheme
+"01.12.02.01",EB*Algol,Al* # Left in for now - not sure if still part of classification scheme
 "01.12.02.02",EB*betLyr,bL*  # Left in for now - not sure if still part of classification scheme
 "01.12.02.03",EB*WUMa,WU*  # Left in for now - not sure if still part of classification scheme
 "01.12.03.00",SB*,SB*
@@ -193,7 +196,7 @@ id,long_name,tag
 "07.06.03.00",LINER,LIN
 "07.06.04.00",QSO,QSO
 "07.06.04.01",Blazar,Bla
-"07.06.04.02",BLLac,BLL  # Not indented on right level - subcategory of Bla
+"07.06.04.02",BLLac,BLL # Not indented on right level - subcategory of Bla
 ### 4.1 Environment Properties ###
 "07.07.00.00",GinPair,GiP
 "07.08.00.00",GtowardsGroup,GiG
@@ -203,7 +206,7 @@ id,long_name,tag
 "08.06.00.00",AGN_Candidate,AG?
 "08.06.04.00",QSO_Candidate,Q?
 "08.06.04.01",Blazar_Candidate,Bz?
-"08.06.04.02",BLLac_Candidate,BL?  # Not indented on right level - subcategory of Bz?
+"08.06.04.02",BLLac_Candidate,BL? # Not indented on right level - subcategory of Bz?
 ##############################################
 ##            5. Sets of Galaxies           ##
 ##############################################
