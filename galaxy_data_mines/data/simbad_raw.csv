@@ -21,7 +21,7 @@ id,long_name,tag
 "01.02.02.03",BSG*_Candidate,s?b
 "01.02.02.04",WR*_Candidate,WR?  # Not indented on right level - subcategory of s?b
 "01.02.02.05",WR?,WR? # Not sure why this is needed but it works
-"01.02.02.05",WolfRayet*_Candidate?,WR? # Not sure why this is needed but it works
+"01.02.02.06",WolfRayet*_Candidate?,WR? # Not sure why this is needed but it works
 "01.02.03.00",NS_Candidate,N*?
 ### 1.2 Young Stellar Objects and Pre.Main Sequence Stars ###
 "01.04.00.00",YSO,Y*O
