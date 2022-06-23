@@ -355,7 +355,8 @@ class DataController:
         'RSG*_Candidate': 's?r',
         'YSG*_Candidate': 's?y',
         'BSG*_Candidate': 's?b',
-        'BSG_Candidate': 's?b',  # Some objects also classified like this
+        #'BSG_Candidate': 's?b',  # Some objects also classified like this
+        'BlueSG_Candidate': 's?b',  # Some objects also classified like this
         'AGB*_Candidate': 'AB?',
         'LP*_Candidate': 'LP?',
         'Mi*_Candidate': 'Mi?',
