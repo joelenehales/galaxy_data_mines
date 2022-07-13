@@ -28,6 +28,9 @@ working_dir = os.getcwd()
 @click.option('--showtable',
               is_flag=True,
               help="Shows the table of object comparisons.")
+@click.option('--include_unmatched',
+              is_flag=True,
+              help="Includes NED and SIMBAD objects that were not matched in the table.")
 @click.option('--savelog',
               type=click.Choice(['debug', 'info', 'warning', 'error', 'critical']),
               help="Use this option to save logs at the level of choice.")
@@ -45,11 +48,10 @@ working_dir = os.getcwd()
               is_flag=True,
               help="Show statistics of comparison results in short format.")
 @click.option('--filename', # Probably not the best way to impliment this
-                type=click.STRING,
                 help="Specify filename to save the output as. Will automatically be followed by output type for each output type.")
 @click.pass_context
 def main(ctx, log, glossary,
-         showtree, showplot, showtable,
+         showtree, showplot, showtable, include_unmatched,
          savelog, saveplot, savetable, savestats, shortstats, filename):
     '''
     Compares object classifications between NED and SIMBAD.
@@ -124,6 +126,7 @@ def main(ctx, log, glossary,
     ctx.obj['filename'] = filename
     ctx.obj['showplot'] = showplot
     ctx.obj['showtable'] = showtable
+    ctx.obj['include_unmatched'] = include_unmatched
     ctx.obj['savetable'] = savetable
     ctx.obj['saveplot'] = saveplot
     ctx.obj['savestats'] = savestats
@@ -152,6 +155,8 @@ def byname(ctx, name, match_tol, obj_radius):
     dc = ctx.obj['dc']
     ct = ctx.obj['ct']
 
+    include_unmatched = ctx.obj['include_unmatched']
+
     logging.info("Query requested: {}".format(name))
 
     # Option values are assumed to be valid by default.
@@ -175,16 +180,16 @@ def byname(ctx, name, match_tol, obj_radius):
     else:
         if match_tol and obj_radius:
             logging.info("Confirm: match-tol & obj-radius passed.")
-            dc.query_region(name, match_tol=match_tol, obj_radius=obj_radius)
+            dc.query_region(name, match_tol=match_tol, obj_radius=obj_radius, include_unmatched=include_unmatched)
         elif match_tol:
             logging.info("Confirm: match-tol passed.")
-            dc.query_region(name, match_tol=match_tol)
+            dc.query_region(name, match_tol=match_tol, include_unmatched=include_unmatched)
         elif obj_radius:
             logging.info("Confirm: obj-radius passed.")
-            dc.query_region(name, obj_radius=obj_radius)
+            dc.query_region(name, obj_radius=obj_radius, include_unmatched=include_unmatched)
         else:
             logging.info("Default settings used for byname query.")
-            dc.query_region(name)
+            dc.query_region(name, include_unmatched=include_unmatched)
 
         if dc.combined_table is not None:
             # Pass table to comparison tree to compare each object
@@ -211,6 +216,8 @@ def bycoord(ctx, coord, match_tol, obj_radius):
     dc = ctx.obj['dc']
     ct = ctx.obj['ct']
 
+    include_unmatched = ctx.obj['include_unmatched']
+
     logging.info("Query requested: {}".format(coord))
 
     # Option values are assumed to be valid by default.
@@ -234,16 +241,16 @@ def bycoord(ctx, coord, match_tol, obj_radius):
     else:
         if match_tol and obj_radius:
             logging.info("Confirm: match-tol & obj-radius passed.")
-            dc.query_region(coord, match_tol=match_tol, obj_radius=obj_radius, bycoord=True)
+            dc.query_region(coord, match_tol=match_tol, obj_radius=obj_radius, bycoord=True, include_unmatched=include_unmatched)
         elif match_tol:
             logging.info("Confirm: match-tol passed.")
-            dc.query_region(coord, match_tol=match_tol, bycoord=True)
+            dc.query_region(coord, match_tol=match_tol, bycoord=True, include_unmatched=include_unmatched)
         elif obj_radius:
             logging.info("Confirm: obj-radius passed.")
-            dc.query_region(coord, obj_radius=obj_radius, bycoord=True)
+            dc.query_region(coord, obj_radius=obj_radius, bycoord=True, include_unmatched=include_unmatched)
         else:
             logging.info("Default settings used for bycoord query.")
-            dc.query_region(coord, bycoord=True)
+            dc.query_region(coord, bycoord=True, include_unmatched=include_unmatched)
 
         if dc.combined_table is not None:
             # Pass table to comparison tree to compare each object

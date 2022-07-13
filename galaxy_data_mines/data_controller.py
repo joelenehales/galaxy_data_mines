@@ -17,6 +17,7 @@ from astropy.coordinates import SkyCoord, match_coordinates_sky, get_icrs_coordi
 from astropy.coordinates.name_resolve import sesame_database, NameResolveError
 from astropy.io import fits
 from requests.exceptions import Timeout, RequestException
+import numpy as np
 
 import matplotlib.pyplot as plt
 import logging
@@ -325,6 +326,7 @@ class DataController:
         'Lens_Candidate': 'Le?',
         'lensImage_Candidate': 'LI?',
         'G_Candidate': 'G?',
+        'Galaxy_Candidate': 'G?', # Some objects also classified like this
         'SClG_Candidate': 'SC?',
         'ClG_Candidate': 'C?G',
         'GrG_Candidate': 'Gr?',
@@ -369,6 +371,7 @@ class DataController:
         'NS_Candidate': 'N*?',
         'BH_Candidate': 'BH?',
         'SN*_Candidate': 'SN?',
+        'Supernova_Candidate': 'SN?',  # Some objects also classified like this
         'low-mass*_Candidate': 'LM?',
         'brownD*_Candidate': 'BD?',
         'Blend': 'mul',
@@ -579,7 +582,7 @@ class DataController:
 
         return DataController.candidate_dict[non_candidate]
 
-    def query_region(self, objectname, match_tol=1.0, obj_radius=1.0, bycoord=False):
+    def query_region(self, objectname, match_tol=1.0, obj_radius=1.0, bycoord=False, include_unmatched=False):
         '''
         Fetch remote data from NED and SIMBAD matching coordinates and build table.
         '''
@@ -680,7 +683,7 @@ class DataController:
         logging.info("Finding object matches.")
         # Find object matches
         if len(ned_coo)> 0 and len(sim_coo) > 0:
-            matched_ned, matched_sim, ned_only, sim_only = self.symmetric_match_sky_coords_v2(
+            matched_ned, matched_sim, ned_only, sim_only = self.symmetric_match_sky_coords_v3(
                 ned_coo, sim_coo, match_tol*u.arcsec)
         else:
              matched_ned = []
@@ -712,6 +715,17 @@ class DataController:
             [ned_table[matched_ned], simbad_table[matched_sim]],
             join_type='outer',
             metadata_conflicts='silent')  # Hide the metadata warning.
+        if include_unmatched: # To include unmatched objects in the table
+            matched_table = vstack(
+            [matched_table, simbad_table[sim_only], ned_table[ned_only]],
+            metadata_conflicts='silent')
+            # Fill masked (missing) values
+            for col in matched_table.colnames:
+                if matched_table[col].dtype == "float64":
+                    matched_table[col].fill_value = np.nan
+                else:
+                    matched_table[col].fill_value = ""
+            matched_table = matched_table.filled()
         self.combined_table = matched_table
 
     def query_region_by_coord(self, coord_type, RA, DEC):
@@ -860,6 +874,85 @@ class DataController:
                     index2_unmatched.append(j)
 
         return (index1_matched, index2_matched, index1_unmatched, index2_unmatched)
+
+    # ----------- Joelene's attempt ---------- #
+    # ---------------------------------------- #
+
+    def symmetric_match_sky_coords_v3(self, coord1, coord2, tolerance):
+        '''produce the symmetric match of coord1 to coord2
+           output:
+           index1_matched: index into coord1 for matched objects
+           index2_matched: index into coord2 for matches of objects in index1_matched
+           index1_unmatch: indices for unmatched objects in coord1
+           index2_unmatch: indices for unmatched objects in coord2
+        '''
+        closest_2to1, sep2d_2to1, sep3d = match_coordinates_sky(
+            coord1, coord2)  # indices for "coord2" for closest match to each coord1. len = len(coord1)
+        # location in coord1 for closest match to each coord2. len = len(coord2)
+        closest_1to2, sep2d_1to2, sep3d = match_coordinates_sky(coord2, coord1)
+
+        index1_matched = []
+        index2_matched = []
+        index1_unmatched = []
+        index2_unmatched = []
+
+        logging.debug("DEBUG STATEMENTS:")
+        logging.debug("tolerance = {}".format(tolerance))
+        logging.debug("len(sep2d_2to1) = {}".format(len(sep2d_2to1)))
+        logging.debug("len(sep2d_1to2) = {}".format(len(sep2d_1to2)))
+        logging.debug("len(closest_2to1) = {}".format(len(closest_2to1)))
+        logging.debug("len(closest_1to2) = {}".format(len(closest_1to2)))
+        logging.debug("len(coord1) = {}".format(len(coord1)))
+        logging.debug("len(coord2) = {}".format(len(coord2)))
+
+        if len(coord1) < len(coord2):
+            shortest_len = len(coord1)
+            longest_len = len(coord2)
+            shortest = "coord1"
+            longest = "coord2"
+        else:
+            shortest_len = len(coord2)
+            longest_len = len(coord1)
+            shortest = "coord2"
+            longest = "coord1"
+
+        # Find symmetric matches
+        i = 0
+        while i < shortest_len:  # Iterate over shorter list of coordinates
+            if shortest == "coord1":
+                if sep2d_2to1[i] < tolerance and i == closest_1to2[closest_2to1[i]]:
+                    index1_matched.append(i)
+                    index2_matched.append(closest_2to1[i])
+                else:
+                    index1_unmatched.append(i)
+
+            elif shortest == "coord2":
+                if sep2d_1to2[i] < tolerance and i == closest_2to1[closest_1to2[i]]:
+                    index2_matched.append(i)
+                    index1_matched.append(closest_1to2[i])
+            i += 1
+
+        # Add unmatched objects to their respective lists
+        for j in range(longest_len): # Start with the longer list of coordinates
+            if longest == "coord1": # If first array is longer
+                if j not in index1_matched:
+                    index1_unmatched.append(j) # Add the unmatched objects to the array for list 1
+
+            elif longest == "coord2": # If the second array is longer
+                if j not in index2_matched:
+                    index2_unmatched.append(j) # Add the unmatched objects to the array for list 2
+
+        for j in range(shortest_len): # Repeat for shorter list of coordinates
+            if shortest == "coord1":
+                if j not in index1_matched:
+                    index1_unmatched.append(j)
+
+            elif shortest == "coord2":
+                if j not in index2_matched:
+                    index2_unmatched.append(j)
+
+        return (index1_matched, index2_matched, index1_unmatched, index2_unmatched)
+
 
         # -------------------------------------- #
         # ----------- Matt's attempt ----------- #
