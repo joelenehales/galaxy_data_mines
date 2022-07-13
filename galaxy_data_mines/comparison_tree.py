@@ -232,37 +232,39 @@ class ComparisonTree:
                 t["Type_S_cond"][i] = DataController.simbad_long_to_small(
                     t["Type_S"][i])
 
-                if t["Type_S_cond"][i] == "":  # no simbad class was returned for object.
-                    t["Non Match"][i] = True
-                    matchtype = "Non Match"
-                    # Break for NED tuple cases. If no match will be found OR First match found is good enough.
-                    break
-                elif (self.are_exact_match(t["Type_N_Analogue"][i], t["Type_S_cond"][i])):
-                    t["Exact Match"][i] = True
-                    matchtype = "Exact Match"
-                    break
-                elif (self.are_candidate_match(Type_N=t["Type_N_Analogue"][i], Type_S=t["Type_S_cond"][i])):
-                    t["Candidate Match"][i] = True
-                    matchtype = "Candidate Match"
-                    break
-                elif (self.of_type_match(t["Type_N_Analogue"][i], t["Type_S_cond"][i])):
-                    t["ofType Match"][i] = True
-                    matchtype = "ofType Match"
-                    break
-                elif self.share_common_ancestor(t["Type_N_Analogue"][i], t["Type_S_cond"][i]):
-                    t["Shared Category Match"][i] = True
-                    matchtype = "Shared Category Match"
-                    break
-                elif self.generalization_match(t["Type_N_Analogue"][i], t["Type_S_cond"][i]):
-                    t["Generalization Match"][i] = True
-                    matchtype = "Generalization Match"
-                    break
-                else:
-                    t["Non Match"][i] = True
-                    matchtype = "Non Match"
+                if t["RA(deg)"][i] > 0 and t["RA_d"][i] > 0: # If object exists in both ned and simbad
 
-            logging.info("{} i={} - N: {} S: {}".format(matchtype,
-                                                        i,
-                                                        ned_analogue,
-                                                        t["Type_S_cond"][i]))
+                    if t["Type_S_cond"][i] == "":  # no simbad class was returned for object.
+                        t["Non Match"][i] = True
+                        matchtype = "Non Match"
+                        # Break for NED tuple cases. If no match will be found OR First match found is good enough.
+                        break
+                    elif (self.are_exact_match(t["Type_N_Analogue"][i], t["Type_S_cond"][i])):
+                        t["Exact Match"][i] = True
+                        matchtype = "Exact Match"
+                        break
+                    elif (self.are_candidate_match(Type_N=t["Type_N_Analogue"][i], Type_S=t["Type_S_cond"][i])):
+                        t["Candidate Match"][i] = True
+                        matchtype = "Candidate Match"
+                        break
+                    elif (self.of_type_match(t["Type_N_Analogue"][i], t["Type_S_cond"][i])):
+                        t["ofType Match"][i] = True
+                        matchtype = "ofType Match"
+                        break
+                    elif self.share_common_ancestor(t["Type_N_Analogue"][i], t["Type_S_cond"][i]):
+                        t["Shared Category Match"][i] = True
+                        matchtype = "Shared Category Match"
+                        break
+                    elif self.generalization_match(t["Type_N_Analogue"][i], t["Type_S_cond"][i]):
+                        t["Generalization Match"][i] = True
+                        matchtype = "Generalization Match"
+                        break
+                    else:
+                        t["Non Match"][i] = True
+                        matchtype = "Non Match"
+
+                logging.info("{} i={} - N: {} S: {}".format(matchtype,
+                                                            i,
+                                                            ned_analogue,
+                                                            t["Type_S_cond"][i]))
         self.combined_table = t
