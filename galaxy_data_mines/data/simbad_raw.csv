@@ -93,10 +93,9 @@ id,long_name,tag
 "01.12.00.00",**,**
 "01.12.01.00",EllipVar,El*
 "01.12.02.00",EclBin,EB*
-"01.12.02.01",EB*Algol,Al* # Left in for now - not sure if still part of classification scheme
-"01.12.02.02",EB*betLyr,bL*  # Left in for now - not sure if still part of classification scheme
-"01.12.02.03",EB*WUMa,WU*  # Left in for now - not sure if still part of classification scheme
-"01.12.03.00",SB*,SB*
+#"01.12.02.01",EB*Algol,Al* # No longer exists in SIMBAD
+#"01.12.02.02",EB*betLyr,bL*  # No longer exists in SIMBAD
+#"01.12.02.03",EB*WUMa,WU*  # No longer exists in SIMBAD
 "01.12.04.00",BYDraV*,BY*
 "01.12.05.00",RSCVnV*,RS*
 "01.12.06.00",Symbiotic*,Sy*
@@ -105,11 +104,10 @@ id,long_name,tag
 "01.12.07.02",HightMassXBin,HXB
 "01.12.08.00",CataclyV*,CV*
 "01.12.08.01",Nova,No*
-"01.12.08.02",Nova-like,NL*  # Not sure if still part of classification scheme. Should be one level indented
-"01.12.08.03",DwarfNova,DN*  # Not sure if still part of classification scheme. Should be one level indented
-"01.12.08.04",DQHer,DQ*  # Not sure if still part of classification scheme. Should be one level indented
-"01.12.08.05",AMHer,AM*  # Not sure if still part of classification scheme. Should be one level indented
-"01.13.00.00",**_Candidate,**?
+#"01.12.08.02",Nova-like,NL*  # No longer exists in SIMBAD
+#"01.12.08.03",DwarfNova,DN*  # No longer exists in SIMBAD
+#"01.12.08.04",DQHer,DQ*  # No longer exists in SIMBAD
+#"01.12.08.05",AMHer,AM*  # No longer exists in SIMBAD
 "01.13.01.00",EllipVar_Candidate,El?
 "01.13.02.00",EB*_Candidate,EB?
 "01.13.03.00",SB*_Candidate,SB?
