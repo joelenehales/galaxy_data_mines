@@ -182,6 +182,7 @@ class DataController:
         'IG': 'IG',
         'Cl*?': 'C?*',
         'GlCl?': 'Gl?',
+        #'GlobCluster_Candidate': 'Gl?',
         'Cl*': 'Cl*',
         'GlCl': 'GlC',
         'OpCl': 'OpC',
@@ -569,6 +570,9 @@ class DataController:
             SIMBAD must not have given this object a classification.")
             return ""
 
+        if simbad_std not in DataController.simbad_std_to_cond:
+            logging.debug("{} is not a recognized object classification in SIMBAD.".format(simbad_std))
+            
         return DataController.simbad_std_to_cond[simbad_std]
 
     @staticmethod
