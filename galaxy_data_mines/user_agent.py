@@ -139,7 +139,7 @@ def main(ctx, log, glossary,
 @main.command()
 @click.argument('name', type=str)
 @click.option('-match-tol', type=float,
-              help='Optional 2D match tolerance (in arc seconds). Default value is 1.0 arcsec.')
+              help='Optional 2D match tolerance (in arc seconds). Default value is 5.0 arcsec.')
 @click.option('-obj-radius', type=float,
               help='Optional radius to search around object (in arc minutes). Default value is 1.0 arcmin.')
 @click.pass_context
@@ -200,7 +200,7 @@ def byname(ctx, name, match_tol, obj_radius):
 @main.command()
 @click.argument('coord', type=str)
 @click.option('-match-tol', type=float,
-              help='Optional 2D match tolerance (in arc seconds). Default value is 1.0 arcsec.')
+              help='Optional 2D match tolerance (in arc seconds). Default value is 5.0 arcsec.')
 @click.option('-obj-radius', type=float,
               help='Optional radius to search around object (in arc minutes). Default value is 1.0 arcmin.')
 @click.pass_context

@@ -572,7 +572,7 @@ class DataController:
 
         if simbad_std not in DataController.simbad_std_to_cond:
             logging.debug("{} is not a recognized object classification in SIMBAD.".format(simbad_std))
-            
+
         return DataController.simbad_std_to_cond[simbad_std]
 
     @staticmethod
@@ -586,7 +586,7 @@ class DataController:
 
         return DataController.candidate_dict[non_candidate]
 
-    def query_region(self, objectname, match_tol=1.0, obj_radius=1.0, bycoord=False, include_unmatched=False):
+    def query_region(self, objectname, match_tol=5.0, obj_radius=1.0, bycoord=False, include_unmatched=False):
         '''
         Fetch remote data from NED and SIMBAD matching coordinates and build table.
         '''
