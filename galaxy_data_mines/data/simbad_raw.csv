@@ -96,12 +96,13 @@ id,long_name,tag
 #"01.12.02.01",EB*Algol,Al* # No longer exists in SIMBAD
 #"01.12.02.02",EB*betLyr,bL*  # No longer exists in SIMBAD
 #"01.12.02.03",EB*WUMa,WU*  # No longer exists in SIMBAD
+"01.12.03.00",SB*,SB*
 "01.12.04.00",BYDraV*,BY*
 "01.12.05.00",RSCVnV*,RS*
 "01.12.06.00",Symbiotic*,Sy*
 "01.12.07.00",XrayBin,XB*
 "01.12.07.01",LowMassXBin,LXB
-"01.12.07.02",HightMassXBin,HXB
+"01.12.07.02",HighMassXBin,HXB
 "01.12.08.00",CataclyV*,CV*
 "01.12.08.01",Nova,No*
 #"01.12.08.02",Nova-like,NL*  # No longer exists in SIMBAD

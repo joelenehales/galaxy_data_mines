@@ -182,7 +182,6 @@ class DataController:
         'IG': 'IG',
         'Cl*?': 'C?*',
         'GlCl?': 'Gl?',
-        #'GlobCluster_Candidate': 'Gl?',
         'Cl*': 'Cl*',
         'GlCl': 'GlC',
         'OpCl': 'OpC',
@@ -324,6 +323,7 @@ class DataController:
         'blue': 'blu',
         'ULX_Candidate': 'UX?',
         'LensSystem_Candidate': 'LS?',
+        'GravLensSystem_Candidate': 'LS?', # Some objects also classified like this
         'Lens_Candidate': 'Le?',
         'lensImage_Candidate': 'LI?',
         'G_Candidate': 'G?',
@@ -335,11 +335,16 @@ class DataController:
         '**_Candidate': '**?',
         'EB*_Candidate': 'EB?',
         'Symb*_Candidate': 'Sy?',
+        'Symbiotic*_Candidate': 'Sy?', # Some objects also classified like this
         'CV*_Candidate': 'CV?',
+        'CataclyV*_Candidate': 'CV?', # Some objects also classified like this
         'Nova_Candidate': 'No?',
         'XB*_Candidate': 'XB?',
+        'XrayBin_Candidate': 'XB?', # Some objects also classified like this
         'LMXB_Candidate': 'LX?',
+        'LowMassXBin_Candidate': 'LX?', # Some objects also classified like this
         'HMXB_Candidate': 'HX?',
+        'HighMassXBin_Candidate': 'HX?', # Some objects also classified like this
         'ChemPec*_Candidate': 'Pe?', # Missing from list - inferred this is what it should be
         'YSO_Candidate': 'Y*?',
         'TTau*_Candidate': 'TT?',
@@ -353,22 +358,28 @@ class DataController:
         'Ae*_Candidate': 'Ae?',
         'HB*_Candidate': 'HB?',
         'RRLyr_Candidate': 'RR?',
+        'RRLyrae_Candidate' : 'RR?', # Some objects also classified like this
         'Cepheid_Candidate': 'Ce?',
         'Type2Cep_Candidate': 'WV?', # Missing from list - inferred this is what it should be
         'RGB*_Candidate': 'RB?',
         'SG*_Candidate': 'sg?',
         'RSG*_Candidate': 's?r',
+        'RedSG_Candidate': 's?r', # Some objects also classified like this
         'YSG*_Candidate': 's?y',
+        'YellowSG_Candidate': 's?y', # Some objects also classified like this
         'BSG*_Candidate': 's?b',
         #'BSG_Candidate': 's?b',  # Some objects also classified like this
         'BlueSG_Candidate': 's?b',  # Some objects also classified like this
         'AGB*_Candidate': 'AB?',
         'LP*_Candidate': 'LP?',
+        'LongPeriodV*_Candidate': 'LP?', # Some objects also classified like this
         'Mi*_Candidate': 'Mi?',
         'post-AGB*_Candidate': 'pA?',
         'BSS_Candidate': 'BS?',
         'Hsd_Candidate': 'HS?',
+        'HotSubdwarf_Candidate': 'HS?',
         'WD*_Candidate': 'WD?',
+        'WhiteDwarf_Candidate': 'WD?', # Some objects also classified like this
         'NS_Candidate': 'N*?',
         'BH_Candidate': 'BH?',
         'SN*_Candidate': 'SN?',
@@ -379,6 +390,7 @@ class DataController:
         'InteractingG': 'IG',
         'Cluster*_Candidate': 'Cl?',
         'GlCl_Candidate': 'Gl?',
+        'GlobCluster_Candidate': 'Gl?', # Some objects also classified like this
         'Cluster*': 'Cl*',
         'GlobCluster': 'GlC',
         'OpenCluster': 'OpC',
@@ -387,8 +399,9 @@ class DataController:
         'EclBin': 'EB*',
         'XrayBin': 'XB*',
         'LowMassXBin': 'LXB',
-        'HightMassXBin': 'HXB',
+        'HighMassXBin': 'HXB',
         'PN_Candidate': 'PN?',
+        'PlanetaryNeb_Candidate': 'PN?', # Some objects also classified like this
         'DarkNeb': 'DNe',
         'RefNeb': 'RNe',
         'StarFormingReg': 'SFR',
@@ -400,6 +413,7 @@ class DataController:
         'outflow_Candidate': 'of?',
         'HerbigHaroObj': 'HH',
         'V*_Candidate': 'V*?',
+        'Variable*_Candidate': 'V*?', # Some objects also classified like this
         'ChemPec*': 'Pe*',
         'HorBranch*': 'HB*',
         'EmLine*': 'Em*',
@@ -706,7 +720,7 @@ class DataController:
         # Explore results
         logging.debug("Matched NED:")
         logging.debug(matched_ned)
-        logging.debug("Matched SIMBAD")
+        logging.debug("Matched SIMBAD:")
         logging.debug(matched_sim)
         logging.debug("NED ONLY")
         logging.debug(ned_only)
