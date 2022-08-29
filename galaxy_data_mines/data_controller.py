@@ -664,7 +664,11 @@ class DataController:
         for attempt in range(3): # sometimes NED times out, so try a couple of times
            Ned.TIMEOUT = (attempt+1) * DataController.ned_timeout_default
            try:
-               ned_table = Ned.query_region(objectcoords, radius=obj_radius*u.arcmin)
+               if obj_radius > 60: # If given radius exceeds limit, use 60 arcmin instead
+                    logging.info("obj_radius exceeds NED limit of 60 arcmin. Using 60 arcmin for NED query instead...")
+                    ned_table = Ned.query_region(objectcoords, radius=60*u.arcmin)
+               else:
+                   ned_table = Ned.query_region(objectcoords, radius=obj_radius*u.arcmin)
                logging.info("SUCCESS: NED Data retrieved.")
            except RequestException:
                logging.debug("NED problem, retrying")

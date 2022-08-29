@@ -168,7 +168,7 @@ def byname(ctx, name, match_tol, obj_radius):
         match_tol_valid = withinbounds(match_tol, lower=0, upper=60)
 
     if obj_radius:
-        obj_radius_valid = withinbounds(obj_radius, lower=0, upper=60)
+        obj_radius_valid = withinbounds(obj_radius, lower=0, upper=180)
 
     # Proceed based on validity of any options passed.
     if match_tol_valid == False:
@@ -176,7 +176,7 @@ def byname(ctx, name, match_tol, obj_radius):
         logging.error("mmatch_tol must be between 0 and 60 arcsecs")
     elif obj_radius_valid == False:
         logging.error("Invalid obj_radius entered.")
-        logging.error("obj_radius must be between 0 and 60 arcmins")
+        logging.error("obj_radius must be between 0 and 180 arcmins")
     else:
         if match_tol and obj_radius:
             logging.info("Confirm: match-tol & obj-radius passed.")
@@ -229,7 +229,7 @@ def bycoord(ctx, coord, match_tol, obj_radius):
         match_tol_valid = withinbounds(match_tol, lower=0, upper=60)
 
     if obj_radius:
-        obj_radius_valid = withinbounds(obj_radius, lower=0, upper=60)
+        obj_radius_valid = withinbounds(obj_radius, lower=0, upper=180)
 
     # Proceed based on validity of any options passed.
     if match_tol_valid == False:
@@ -237,7 +237,7 @@ def bycoord(ctx, coord, match_tol, obj_radius):
         logging.error("mmatch_tol must be between 0 and 60 arcsec")
     elif obj_radius_valid == False:
         logging.error("Invalid obj_radius entered.")
-        logging.error("obj_radius must be between 0 and 60 arcmin")
+        logging.error("obj_radius must be between 0 and 180 arcmin")
     else:
         if match_tol and obj_radius:
             logging.info("Confirm: match-tol & obj-radius passed.")
