@@ -263,6 +263,10 @@ class ComparisonTree:
                         t["Non Match"][i] = True
                         matchtype = "Non Match"
 
+                else:
+                    t["Non Match"][i] = True
+                    matchtype = "Non Match"
+
                 logging.info("{} i={} - N: {} S: {}".format(matchtype,
                                                             i,
                                                             ned_analogue,

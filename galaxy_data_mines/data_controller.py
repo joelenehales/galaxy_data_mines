@@ -334,6 +334,7 @@ class DataController:
         'As*_Candidate': 'As?', # Missing from list - inferred this is what it should be
         '**_Candidate': '**?',
         'EB*_Candidate': 'EB?',
+        'EclBin_Candidate': 'EB?', # Some objects also classified like this
         'Symb*_Candidate': 'Sy?',
         'Symbiotic*_Candidate': 'Sy?', # Some objects also classified like this
         'CV*_Candidate': 'CV?',
@@ -357,12 +358,14 @@ class DataController:
         'Be*_Candidate': 'Be?',
         'Ae*_Candidate': 'Ae?',
         'HB*_Candidate': 'HB?',
+        'HorBranch*_Candidate': 'HB?', # Some objects also classified like this
         'RRLyr_Candidate': 'RR?',
         'RRLyrae_Candidate' : 'RR?', # Some objects also classified like this
         'Cepheid_Candidate': 'Ce?',
         'Type2Cep_Candidate': 'WV?', # Missing from list - inferred this is what it should be
         'RGB*_Candidate': 'RB?',
         'SG*_Candidate': 'sg?',
+        'Supergiant_Candidate': 'sg?', # Some objects also classified like this
         'RSG*_Candidate': 's?r',
         'RedSG_Candidate': 's?r', # Some objects also classified like this
         'YSG*_Candidate': 's?y',
@@ -386,6 +389,7 @@ class DataController:
         'Supernova_Candidate': 'SN?',  # Some objects also classified like this
         'low-mass*_Candidate': 'LM?',
         'brownD*_Candidate': 'BD?',
+        'BrownD*_Candidate': 'BD?', # Some objects also classified like this
         'Blend': 'mul',
         'InteractingG': 'IG',
         'Cluster*_Candidate': 'Cl?',
@@ -713,6 +717,11 @@ class DataController:
         logging.debug(ned_table[matched_ned])
         logging.debug("Matched SIMBAD rows:")
         logging.debug(simbad_table[matched_sim])
+        logging.debug("")
+        logging.debug("Unmatched NED rows:")
+        logging.debug(ned_table[ned_only])
+        logging.debug("Unmatched SIMBAD rows:")
+        logging.debug(simbad_table[sim_only])
         logging.debug("")
 
         self.stats.overlap_count = len(matched_ned)

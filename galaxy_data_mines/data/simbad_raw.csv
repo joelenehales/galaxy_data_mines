@@ -109,6 +109,7 @@ id,long_name,tag
 #"01.12.08.03",DwarfNova,DN*  # No longer exists in SIMBAD
 #"01.12.08.04",DQHer,DQ*  # No longer exists in SIMBAD
 #"01.12.08.05",AMHer,AM*  # No longer exists in SIMBAD
+"01.13.00.00",**_Candidate,**?
 "01.13.01.00",EllipVar_Candidate,El?
 "01.13.02.00",EB*_Candidate,EB?
 "01.13.03.00",SB*_Candidate,SB?
