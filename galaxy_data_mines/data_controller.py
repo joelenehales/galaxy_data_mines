@@ -325,6 +325,7 @@ class DataController:
         'LensSystem_Candidate': 'LS?',
         'GravLensSystem_Candidate': 'LS?', # Some objects also classified like this
         'Lens_Candidate': 'Le?',
+        'GravLens_Candidate': 'Le?', # Some objects also classified like this
         'lensImage_Candidate': 'LI?',
         'G_Candidate': 'G?',
         'Galaxy_Candidate': 'G?', # Some objects also classified like this

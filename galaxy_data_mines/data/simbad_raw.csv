@@ -195,8 +195,8 @@ id,long_name,tag
 "07.06.02.00",RadioG,rG
 "07.06.03.00",LINER,LIN
 "07.06.04.00",QSO,QSO
-"07.06.04.01",Blazar,Bla
-"07.06.04.02",BLLac,BLL # Not indented on right level - subcategory of Bla
+"07.06.05.00",Blazar,Bla # Not indented on right level - subcategory of QSO
+"07.06.05.01",BLLac,BLL 
 ### 4.1 Environment Properties ###
 "07.07.00.00",GinPair,GiP
 "07.08.00.00",GtowardsGroup,GiG
@@ -205,8 +205,8 @@ id,long_name,tag
 "08.00.00.00",G_Candidate,G?
 "08.06.00.00",AGN_Candidate,AG?
 "08.06.04.00",QSO_Candidate,Q?
-"08.06.04.01",Blazar_Candidate,Bz?
-"08.06.04.02",BLLac_Candidate,BL? # Not indented on right level - subcategory of Bz?
+"08.06.05.00",Blazar_Candidate,Bz? # Not indented on right level - subcategory of QSO_Candidate
+"08.06.05.01",BLLac_Candidate,BL?
 ##############################################
 ##            5. Sets of Galaxies           ##
 ##############################################
